@@ -1,0 +1,25 @@
+syntax = "proto3";
+import public "global_options.proto";
+
+option go_package="./;proto";
+option java_package = "org.liquibase.grpc.proto";
+option java_multiple_files = true;
+option java_outer_classname = "RegisterChangelogProto";
+
+package liquibase;
+
+service RegisterChangelogService {
+  rpc execute(RegisterChangelogRequest) returns (Response) {}
+}
+
+/* Register the changelog with a Liquibase Hub project */
+message RegisterChangelogRequest {
+  string changelog_file = 1; // *required* The root changelog
+  optional string hub_project_id = 2; // Used to identify the specific Project in which to record or extract data at Liquibase Hub. Available in your Liquibase Hub account at https://hub.liquibase.com.
+  optional string hub_project_name = 3; // The Hub project name
+  liquibase.GlobalOptions global_options = 4;
+}
+
+message Response {
+  string message = 1;
+}
