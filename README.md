@@ -6,7 +6,7 @@ Register the changelog with a Liquibase Hub project
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/register-changelog@v4.17.0
+- uses: liquibase-github-actions/register-changelog@v4.17.1
   with:
     # The root changelog
     # string
@@ -35,7 +35,7 @@ The liquibase register changelog action accepts all valid liquibase global optio
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/register-changelog@v4.17.0
+  - uses: liquibase-github-actions/register-changelog@v4.17.1
     with:
       changelogFile: ""
       headless: true
